@@ -104,6 +104,11 @@ Here's a blank template to get started. To avoid retyping too much info, do a se
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## division of work
+Seth: API 4
+Rachel:API 2
+Kent: API 3
+Val: API 1
 
 
 <!-- GETTING STARTED -->
