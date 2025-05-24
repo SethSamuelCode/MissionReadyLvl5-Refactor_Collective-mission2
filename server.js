@@ -46,7 +46,7 @@ app.use(cors(corsConfigs)); // Apply CORS policy
 
 // Health check/test GET endpoint
 app.get("/test", (req, resp) => {
-  resp.status(200).json({ status: "success", data: "youve hit /test" });
+  resp.status(200).json({ status: "success", data: "you've hit /test" });
 });
 
 // Start the Express server
