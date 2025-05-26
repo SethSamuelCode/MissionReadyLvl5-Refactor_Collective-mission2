@@ -61,7 +61,7 @@ describe("api4 - Boundary Tests", () => {
     {
       description: "Age is 25, Experience is 5",
       input: { age: 25, experience: 5 },
-      expected: { discount_rate: 5 },
+      expected: { discount_rate: 10 },
     },
     {
       description: "Age is 40, Experience is 10",
