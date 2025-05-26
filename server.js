@@ -11,7 +11,7 @@ const assert = require("node:assert/strict"); // Assertion utility for debugging
 
 const morgan = require("morgan"); // HTTP request logger
 app.use(morgan("dev")); // Log requests to console
-app.use(express.json({ limit: "10MB" })); // Parse JSON bodies up to 10MB. this is the limit for google API
+app.use(express.json()); // Parse JSON bodies 
 
 // Configure CORS to allow only specific origins
 const corsConfigs = {
@@ -39,6 +39,11 @@ app.use(cors(corsConfigs)); // Apply CORS policy
 // ----------------------- RACHEL ----------------------- //
 
 // ------------------------ SETH ------------------------ //
+const {api4}=require("./api4/api4")
+
+app.post("/api/api4",(req,resp)=>{
+  resp.send(api4(req.body))
+})
 
 // ---------------------- VALENTINE --------------------- //
 

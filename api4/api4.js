@@ -1,6 +1,7 @@
 // Calculates discount rate based on age and experience, with input validation
 function api4(input) {
-  // Validate input: must be an object with integer, non-negative age and experience
+    // Validate input: must be an object with integer, non-negative age and experience
+    console.log(input);
   if (
     !input ||
     typeof input.age !== "number" ||
