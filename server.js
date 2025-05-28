@@ -7,6 +7,7 @@ const cors = require("cors"); // CORS middleware
 const PORT = process.env.SERVER_LISTEN_PORT; // Port from environment
 const assert = require("node:assert/strict"); // Assertion utility for debugging
 
+
 // --------------------- MIDDLEWARES -------------------- //
 
 const morgan = require("morgan"); // HTTP request logger
@@ -30,12 +31,22 @@ app.use(cors(corsConfigs)); // Apply CORS policy
 
 // ---------------------- FUNCTIONS --------------------- //
 
-
+// api3 function
+const { calculatePremium } = require('./api3/calculatePremium');
 
 // ----------------------- ROUTES ----------------------- //
 
 // ------------------------ KENT ------------------------ //
+app.post('/api/quote', (req, res) => {
+  const { car_value, risk_rating } = req.body;
 
+  try {
+      const result = calculatePremium(car_value, risk_rating);
+      res.json(result);
+  } catch (error) {
+      res.status(400).json({ error: "there is an error" });
+  }
+});
 // ----------------------- RACHEL ----------------------- //
 
 // ------------------------ SETH ------------------------ //
