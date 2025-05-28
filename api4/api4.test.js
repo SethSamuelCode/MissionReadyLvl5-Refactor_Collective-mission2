@@ -110,6 +110,11 @@ describe("api4 - Invalid Input Tests", () => {
       expected: { error: "there is an error" },
     },
     {
+      description: "no payload",
+      input: undefined,
+      expected: { error: "there is an error" },
+    },
+    {
       description: "No values in Age or Experience (undefined)",
       input: { age: undefined, experience: undefined },
       expected: { error: "there is an error" },
