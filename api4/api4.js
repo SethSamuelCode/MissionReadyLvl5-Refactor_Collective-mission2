@@ -9,6 +9,8 @@ function api4(input) {
   if (!input) {
     inputError = true;
     console.log("ERROR: input is blank");
+    //exit function if no input
+    return { error: "there is an error" };
   }
   // Check if age is a number
   if (typeof input.age !== "number") {
@@ -21,11 +23,6 @@ function api4(input) {
     console.log("ERROR: experience  is not a number");
   }
   // Check if age is an integer
-  if (!Number.isInteger(input.age)) {
-    inputError = true;
-    console.log("ERROR: age is not an integer");
-  }
-  // Duplicate check for age integer (can be removed)
   if (!Number.isInteger(input.age)) {
     inputError = true;
     console.log("ERROR: age is not an integer");
