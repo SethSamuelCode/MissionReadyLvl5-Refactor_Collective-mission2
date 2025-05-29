@@ -6,17 +6,20 @@ const keywords = ["collide", "crash", "scratch", "bump", "smash"];
 //___ CALCULATE RISK FUNCTION ___
 
 //___ VALIDATION ___
-//-- Checks if the claim history is provided and is a string 
-//...otherwise it returns an error message.
+//-- Uses regex with word boundaries to detect all keyword variants and prevent false matches
+//-- Ignores case sensitivity for reliable matching.
 
-//___ CASE INSENSITIVITY ___
-//-- Converts the claim history to lowercase.
+//___ COUNTING MATCHES ___
+//-- Iterates through the keyword list and searches for matches in the claim history.
+//-- Collects the matches and their occurrences then logs them to the console so you can see
+//... whether every keyword and their variance has been detected properly.
 
 //___ RETURN ___
-//-- Maps the matched keywords to a scale and returns a risk rating based on the number of keywords found.
-//-- No keyword found returns a risk rating of 1.
-//-- For all keywords in the claim history, count how many times they appear
-//...and return the total count as the risk rating in the scale.
+//-- Updates totalMatches with the number of keywords 
+//-- Outputs log details
+//-- Converts the final count to a risk rating based on a scale.
+
+
 
 function calculateRiskRating(claimHistory) {
     if (claimHistory === null || claimHistory === undefined || typeof claimHistory !== "string") {
