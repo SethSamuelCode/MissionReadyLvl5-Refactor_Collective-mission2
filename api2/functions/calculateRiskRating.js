@@ -19,8 +19,6 @@ const keywords = ["collide", "crash", "scratch", "bump", "smash"];
 //-- Outputs log details
 //-- Converts the final count to a risk rating based on a scale.
 
-
-
 function calculateRiskRating(claimHistory) {
     if (claimHistory === null || claimHistory === undefined || typeof claimHistory !== "string") {
         throw new Error("Invalid input format");
@@ -38,6 +36,7 @@ function calculateRiskRating(claimHistory) {
 
     let totalMatches = keywords.reduce((count, keyword) => {
         const matches = claimHistoryLower.match(new RegExp(`\\b${keyword}\\w*\\b`, "gi")) || [];
+        
         if (matches.length > 0) {
             console.log(`Keyword "${keyword}" matches:`, matches);
         }

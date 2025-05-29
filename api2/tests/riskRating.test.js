@@ -8,13 +8,12 @@ describe("calculateRiskRating", () => {
         expect(result).toBe(5);
     });
 
-    test("Check claim history is returned in the correct format and throws an error if not", () => {
-        expect(() => calculateRiskRating(123)).toThrow("Invalid input format");
-        expect(() => calculateRiskRating({})).toThrow("Invalid input format");
-        expect(() => calculateRiskRating([])).toThrow("Invalid input format");
-        expect(() => calculateRiskRating(undefined)).toThrow("Invalid input format");
+    test("Check invalid claim history throws an error", () => {
+        [123, {}, [], undefined].forEach(invalidInput => {
+        expect(() => calculateRiskRating(invalidInput)).toThrow("Invalid input format");
     });
-    
+    });
+
     test("Check claim history for case insensitivity", () => {
         const claimHistory = "Collide, collide, Crash, crash, scratch, Scratch, Bump, bump, Smash, smash";
         const result = calculateRiskRating(claimHistory);
