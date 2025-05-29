@@ -6,6 +6,7 @@ const app = express();
 const cors = require("cors"); // CORS middleware
 const PORT = process.env.SERVER_LISTEN_PORT; // Port from environment
 const assert = require("node:assert/strict"); // Assertion utility for debugging
+const { calculateRiskRating } = require("./api2/functions/calculateRiskRating.js")
 
 // --------------------- MIDDLEWARES -------------------- //
 
@@ -37,7 +38,20 @@ app.use(cors(corsConfigs)); // Apply CORS policy
 // ------------------------ KENT ------------------------ //
 
 // ----------------------- RACHEL ----------------------- //
+//___ POST REQUEST HANDLER ___
+//-- Handles the post request to the /risk-rating endpoint and expects a JSON body with claim history.
+//-- It calculates the risk rating based on the claim history and returns it in the response.
+//-- If the input is invalid, it returns an error message.
 
+app.post("/risk-rating", (req, res) => {
+    try {
+        const claimHistory = req.body.claim_history;
+        const riskRating = calculateRiskRating(claimHistory);
+        res.json({ risk_rating: riskRating });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
 // ------------------------ SETH ------------------------ //
 
 // ---------------------- VALENTINE --------------------- //
